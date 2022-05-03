@@ -11,4 +11,10 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
 }
+
+/* stylos que vao ser aplicados no html no body e no root*/
+
+html,body,#root{
+    height: 100%;
+}
 `
