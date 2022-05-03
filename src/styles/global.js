@@ -17,4 +17,11 @@ export default createGlobalStyle`
 html,body,#root{
     height: 100%;
 }
+
+body{
+    font:14px 'Roboto',sans-serif;
+    background: gray;
+    color: white;
+    -webkit-font-smoothing:antialiased !important;
+}
 `
