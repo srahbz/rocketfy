@@ -1,4 +1,6 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+import { DndProvider } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
 
 import  GlobalStyle  from "./styles/global";
 import Header from './components/header'
@@ -7,12 +9,12 @@ import Board from './components/board'
 function App() {
   return (
       // fragment é como uma div mas facilita a estilizacao
-    <Fragment>
+    <DndProvider backend={HTML5Backend}>
       <Header/>
       <Board/>
       
       <GlobalStyle/>
-    </Fragment>
+    </DndProvider>
     
   );
 }
