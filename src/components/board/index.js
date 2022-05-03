@@ -1,9 +1,18 @@
 import React from 'react';
+import List from '../list';
 
-// import { Container } from './styles';
+ import { Container } from './styles';
 
 function board() {
-  return <div />;
+  return (
+  <Container>
+    <List/>
+    <List/>
+    <List/>
+    <List/>
+    <List/>
+  </Container>
+  );
 }
 
 export default board;
