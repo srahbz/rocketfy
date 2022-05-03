@@ -28,12 +28,15 @@ function Cards({data,index}) {
 
      const draggedOffSet = monitor.getClientOffset()// diz a distancia arrastada do item
      const draggedTop = draggedOffSet.y - targetSize.top
-     console.log(draggedTop, targetCenter)
+     
 
      if(draggadIndex < targetIndex && draggedTop < targetCenter){
        return;
 
      }
+    if(draggadIndex>targetIndex && draggedTop > targetCenter){
+      return;
+    }
     }
 
   })
