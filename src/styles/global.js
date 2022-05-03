@@ -15,12 +15,11 @@ export default createGlobalStyle`
 /* stylos que vao ser aplicados no html no body e no root*/
 
 html,body,#root{
-    height: 100%;
+   height: 100%;
 }
-
 body{
     font:14px 'Roboto',sans-serif;
-    background: #484d50;
+    background: #bbb;
     color: white;
     -webkit-font-smoothing:antialiased !important;
 }
