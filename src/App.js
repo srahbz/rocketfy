@@ -1,6 +1,10 @@
+import { GlobalStyled } from "./styles/global";
+
 function App() {
   return (
-    <div className="App"></div>
+    <Fragment>
+      <GlobalStyled/>
+    </Fragment>
   );
 }
 
