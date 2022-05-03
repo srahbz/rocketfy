@@ -24,4 +24,9 @@ body{
     color: white;
     -webkit-font-smoothing:antialiased !important;
 }
+
+/* deixa a lista sem as bolinhas  */
+ul{
+    list-style: none;
+}
 `
