@@ -20,7 +20,7 @@ html,body,#root{
 
 body{
     font:14px 'Roboto',sans-serif;
-    background: gray;
+    background: #484d50;
     color: white;
     -webkit-font-smoothing:antialiased !important;
 }
