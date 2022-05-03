@@ -14,7 +14,7 @@ function cards({data}) {
     <p>
       {data.content}
     </p>
-   { data.user &&  <img src={data.user} alt=""/>}
+   { data.user ? <img src={data.user} alt=""/>: <img src='https://cdn-icons-png.flaticon.com/512/590/590726.png'/>}
   </Container>
   );
 }
