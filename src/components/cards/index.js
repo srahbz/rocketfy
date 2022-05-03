@@ -25,7 +25,15 @@ function Cards({data,index}) {
     //  Element.getBoundingClientRect() retorna o tamanho de um elemento e sua posição relativa ao viewport. 
      const targetSize = ref.current.getBoundingClientRect()
      const targetCenter = (targetSize.bottom - targetSize.top)/2
-console.log(targetCenter)
+
+     const draggedOffSet = monitor.getClientOffset()// diz a distancia arrastada do item
+     const draggedTop = draggedOffSet.y - targetSize.top
+     console.log(draggedTop, targetCenter)
+
+     if(draggadIndex < targetIndex && draggedTop < targetCenter){
+       return;
+
+     }
     }
 
   })
