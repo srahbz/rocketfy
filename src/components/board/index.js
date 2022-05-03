@@ -2,8 +2,8 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-function cards() {
+function board() {
   return <div />;
 }
 
-export default cards;
+export default board;
