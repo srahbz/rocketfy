@@ -7,8 +7,9 @@ function App() {
   return (
       // fragment é como uma div mas facilita a estilizacao
     <Fragment>
-      <GlobalStyle/>
       <Header/>
+      
+      <GlobalStyle/>
     </Fragment>
     
   );
