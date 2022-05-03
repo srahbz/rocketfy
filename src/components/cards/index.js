@@ -2,9 +2,20 @@ import React from 'react';
 import { useDrag } from 'react-dnd'
 import { Container,Label } from './styles';
 
-function cards({data}) {
+function Cards({data}) {
+
+  const [{isDragging},dragRef]= useDrag({
+    type: 'CARD',
+    item:{},
+    collect: monitor =>({
+      isDragging:monitor.isDragging()
+    }),
+  })
+
+
+
   return (
-  <Container >
+  <Container ref={dragRef} >
     <header>
       {data.labels.map(label =><Label key={label} color={label}/>)}
       {/* é o quadradinhoo colorido */}
@@ -19,4 +30,4 @@ function cards({data}) {
   );
 }
 
-export default cards;
+export default Cards;

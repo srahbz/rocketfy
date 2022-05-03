@@ -2,7 +2,7 @@ import React from 'react';
 
 import { MdAddTask } from "react-icons/md";
 
-import Card from "../cards"
+import Card from "../Cards"
 
  import { Container } from './styles';
 
