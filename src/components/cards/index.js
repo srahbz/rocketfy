@@ -1,19 +1,37 @@
-import React from 'react';
-import { useDrag } from 'react-dnd'
+import React,{useRef} from 'react';
+import { useDrag,useDrop } from 'react-dnd'
 import { Container,Label } from './styles';
 
-function Cards({data}) {
+function Cards({data,index}) {
+  const ref =useRef()
 
   const [{isDragging},dragRef]= useDrag({
     type: 'CARD',
-    item:{},
+    item:{index},
     collect: monitor =>({
       isDragging:monitor.isDragging()
     }),
   })
 
+  const[,dropRef] = useDrop({
+    accept:'CARD',
+    hover(item,monitor){
+     const draggadIndex = item.index
+     const targetIndex = index
+     
+     if(draggadIndex === targetIndex){
+       return
+     }
+     console.log('ok')
+
+    }
+
+  })
+
+  dragRef(dropRef(ref))
+
   return (
-  <Container ref={dragRef} isDragging={isDragging}>
+  <Container ref={ref} isDragging={isDragging}>
     <header>
       {data.labels.map(label =><Label key={label} color={label}/>)}
       {/* é o quadradinhoo colorido */}
