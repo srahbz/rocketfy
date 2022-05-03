@@ -2,18 +2,19 @@ import React from 'react';
 import img from '../../img/img.png'
 import { Container,Label } from './styles';
 
-function cards() {
+function cards({data}) {
   return (
   <Container >
     <header>
+      {data.labels.map(label =><Label key={label} color={label}/>)}
       {/* é o quadradinhoo colorido */}
-      <Label color="blueviolet"/>
+     
     </header>
     {/* é o conteudo escrito */}
     <p>
-      Fazer migração completa de servidor
+      {data.content}
     </p>
-    <img src={img} alt="img"/>
+   { data.user &&  <img src={data.user} alt=""/>}
   </Container>
   );
 }

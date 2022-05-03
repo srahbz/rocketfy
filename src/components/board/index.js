@@ -3,15 +3,14 @@ import List from '../list';
 import {loadLists} from "../../services/api"
 
  import { Container } from './styles';
- const list = loadLists();
+import list from '../list';
+
+ const lists = loadLists();
 
 function board() {
   return (
   <Container>
-    <List/>
-    <List/>
-    <List/>
-    <List/>
+    {lists.map(list => <List key={list.title}data={list}/>)}
   </Container>
   );
 }
