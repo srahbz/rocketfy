@@ -6,7 +6,7 @@ import Card from "../Cards"
 
  import { Container } from './styles';
 
-function list({data}) {
+function list({data,index: listIndex}) {
   return (
   <Container done={data.done}>
     <header>
@@ -18,7 +18,7 @@ function list({data}) {
      )}
     </header>
     <ul>
-     {data.cards.map((card,index )=> <Card key={card.id} index={index} data={card}/>) }
+     {data.cards.map((card,index )=> <Card key={card.id} index={index} listIndex={listIndex} data={card}/>) }
     </ul>
   </Container>
   );

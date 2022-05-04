@@ -1,13 +1,17 @@
-import React,{useRef} from 'react';
+import React,{useRef,useContext} from 'react';
+
+import BoardContext from'../Board/context'
+
 import { useDrag,useDrop } from 'react-dnd'
 import { Container,Label } from './styles';
 
-function Cards({data,index}) {
+function Cards({data,index,listIndex}) {
   const ref =useRef()
+  const{move} =useContext(BoardContext)
 
   const [{isDragging},dragRef]= useDrag({
     type: 'CARD',
-    item:{index},
+    item:{index,listIndex},
     collect: monitor =>({
       isDragging:monitor.isDragging()
     }),
@@ -16,10 +20,13 @@ function Cards({data,index}) {
   const[,dropRef] = useDrop({
     accept:'CARD',
     hover(item,monitor){
+    const draggedListIndex = item.listIndex
+    const targetListIndex = listIndex
+
      const draggadIndex = item.index
      const targetIndex = index
      
-     if(draggadIndex === targetIndex){
+     if(draggadIndex === targetIndex && draggedListIndex===targetListIndex){
        return
      }
     //  Element.getBoundingClientRect() retorna o tamanho de um elemento e sua posição relativa ao viewport. 
@@ -39,6 +46,10 @@ function Cards({data,index}) {
       return;
     }
 
+    move(draggedListIndex,targetListIndex,draggadIndex,targetIndex)
+
+    item.index=targetIndex
+    item.listIndex=targetListIndex
 
 
     }

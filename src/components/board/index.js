@@ -1,5 +1,7 @@
 import React,{useState} from 'react';
 import List from '../list';
+import produce from 'immer'
+import BoardContext from './context';
 import {loadLists} from "../../services/api"
 
  import { Container } from './styles';
@@ -10,14 +12,21 @@ import {loadLists} from "../../services/api"
 function Board() {
   const[lists,setLists] = useState(data);
   
-  function move(from,to){
-    console.log(from,to)
+  function move( fromList,toList,from,to){
+    setLists(produce(lists, draft =>{
+      const dragged = draft[fromList].cards[from]
+      draft[fromList].cards.splice(from,1)
+      draft[toList].cards.splice(to,0,dragged)
+
+    }))
   }
 
   return (
-  <Container>
-    {lists.map(list => <List key={list.title}data={list}/>)}
+    <BoardContext.Provider value={{lists,move}}>
+    <Container>
+    {lists.map((list,index) => <List key={list.title} index={index} data={list}/>)}
   </Container>
+    </BoardContext.Provider>
   );
 }
 
