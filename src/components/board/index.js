@@ -1,13 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import List from '../list';
 import {loadLists} from "../../services/api"
 
  import { Container } from './styles';
-import list from '../list';
 
- const lists = loadLists();
 
-function board() {
+ const data = loadLists();
+
+function Board() {
+  const[lists,setLists] = useState(data);
+  
+  function move(from,to){
+    console.log(from,to)
+  }
+
   return (
   <Container>
     {lists.map(list => <List key={list.title}data={list}/>)}
@@ -15,4 +21,4 @@ function board() {
   );
 }
 
-export default board;
+export default Board;

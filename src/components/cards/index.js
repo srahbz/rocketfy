@@ -29,15 +29,21 @@ function Cards({data,index}) {
      const draggedOffSet = monitor.getClientOffset()// diz a distancia arrastada do item
      const draggedTop = draggedOffSet.y - targetSize.top
      
-
+//  ve se quer botar o item na mesma posicao que ele esta em relacao a parte de cima
      if(draggadIndex < targetIndex && draggedTop < targetCenter){
        return;
 
      }
+    //  ve se quer botar o item na mesma posicao que ele esta em relacao a parte de baixo
     if(draggadIndex>targetIndex && draggedTop > targetCenter){
       return;
     }
+
+
+
     }
+
+  
 
   })
 
